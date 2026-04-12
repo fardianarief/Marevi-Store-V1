@@ -3,105 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <title>MAREVI STORE - MOESLIM FASION</title>
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYFDE4ekE0ua7b1RjbpAENLB63UzhEvOR5ctrf0LRypl7a4d5uITYrErz8Im2ZoVFwusC_VFIQSi3fcWe1BgrOvqsJKDHJR5pGaw6gtRBRtVrxA19tqU0757HYvFF6tGQv3pS97FqIQJCHP1AQTgpFf6y8061Lr1lVIrEty6DH2awKEQA4WEyBirjXNbWH/s320/Untitled_design__2_-removebg-preview.png">
-
-  <!-- Link ke manifest.json -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#000000" id="meta-theme-color">
-
+  <title>MAREVI-Moeslim Fashion</title>
   <style>
-    :root {
-      --bg-light: #ffffff;
-      --text-light: #111;
-      --bg-dark: #000000;
-      --text-dark: #eee;
-      --accent: #00a859;
-      --toggle-size: 56px;
-      --toggle-padding: 12px;
-    }
-
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-color: #000;
     }
-
     body {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
-
-    /* Container iframe */
-    .app-frame {
-      flex: 1 1 auto;
-      display: block;
+    iframe {
+      flex: 1;
+      border: none;
       width: 100%;
-      height: calc(100vh - 0px);
-      border: none;
     }
-
-    /* Install button */
-    #installButton {
-      position: fixed;
-      left: 16px;
-      bottom: 20px;
-      background-color: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 14px;
-      cursor: pointer;
-      display: none;
-      z-index: 1200;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-    }
-
   </style>
 </head>
 <body>
-  <!-- Iframe utama -->
-  <iframe id="appIframe" class="app-frame" src="https://www.appsheet.com/start/2d06f5eb-df42-450a-8d79-ddb4c6277837?refresh=1" allowfullscreen allow="geolocation"></iframe>
-
-  <!-- Install button (muncul jika beforeinstallprompt tersedia) -->
-  <button id="installButton">Install Apps (safe)</button>
-
-
-  <script>
-  // --- Install prompt handling ---
-  let deferredPrompt;
-  const installButton = document.getElementById('installButton');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installButton.style.display = 'inline-block';
-  });
-
-  installButton.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    installButton.style.display = 'none';
-    deferredPrompt.prompt();
-    const choice = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-  });
-
-
-  // --- Service worker registration ---
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('ServiceWorker registered', reg.scope))
-        .catch(err => console.warn('ServiceWorker failed', err));
-    });
-  }
-  </script>
+  <iframe 
+    src="https://www.appsheet.com/start/2d06f5eb-df42-450a-8d79-ddb4c6277837?refresh=1"
+    allowfullscreen
+    allow="geolocation">
+  </iframe>
 </body>
-  </html>
+</html>
