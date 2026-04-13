@@ -1,33 +1,120 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYFDE4ekE0ua7b1RjbpAENLB63UzhEvOR5ctrf0LRypl7a4d5uITYrErz8Im2ZoVFwusC_VFIQSi3fcWe1BgrOvqsJKDHJR5pGaw6gtRBRtVrxA19tqU0757HYvFF6tGQv3pS97FqIQJCHP1AQTgpFf6y8061Lr1lVIrEty6DH2awKEQA4WEyBirjXNbWH/s320/Untitled_design__2_-removebg-preview.png">
-  <title>MAREVI-Moeslim Fashion</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #000;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-    iframe {
-      flex: 1;
-      border: none;
-      width: 100%;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+<title>MAREVI - Moeslim Fashion</title>
+
+<link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYFDE4ekE0ua7b1RjbpAENLB63UzhEvOR5ctrf0LRypl7a4d5uITYrErz8Im2ZoVFwusC_VFIQSi3fcWe1BgrOvqsJKDHJR5pGaw6gtRBRtVrxA19tqU0757HYvFF6tGQv3pS97FqIQJCHP1AQTgpFf6y8061Lr1lVIrEty6DH2awKEQA4WEyBirjXNbWH/s320/Untitled_design__2_-removebg-preview.png">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+<style>
+html, body {
+margin: 0;
+padding: 0;
+height: 100%;
+background-color: #000;
+font-family: Arial, sans-serif;
+}
+
+body {
+display: flex;
+flex-direction: column;
+}
+
+iframe {
+flex: 1;
+border: none;
+width: 100%;
+}
+
+/* Install Button */
+
+#installBtn {
+position: fixed;
+bottom: 15px;
+left: 15px;
+background: #000;
+color: #fff;
+border-radius: 30px;
+padding: 8px 14px;
+font-size: 12px;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+display: none;
+z-index: 9999;
+}
+
+#installBtn:hover {
+background: #222;
+}
+
+</style>
+
 </head>
+
 <body>
-  <iframe 
-    src="https://www.appsheet.com/start/2d06f5eb-df42-450a-8d79-ddb4c6277837?refresh=1"
-    allowfullscreen
-    allow="geolocation">
-  </iframe>
+
+<iframe 
+src="https://www.appsheet.com/start/2d06f5eb-df42-450a-8d79-ddb4c6277837?refresh=1"
+allowfullscreen
+allow="geolocation">
+</iframe>
+
+<div id="installBtn">📲 Install Apps</div>
+
+<script>
+
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+
+e.preventDefault();
+
+deferredPrompt = e;
+
+installBtn.style.display = 'block';
+
+});
+
+installBtn.addEventListener('click', async () => {
+
+installBtn.style.display = 'none';
+
+deferredPrompt.prompt();
+
+const { outcome } = await deferredPrompt.userChoice;
+
+if (outcome === 'accepted') {
+
+console.log('User accepted install');
+
+}
+
+deferredPrompt = null;
+
+});
+
+window.addEventListener('appinstalled', () => {
+
+installBtn.style.display = 'none';
+
+});
+
+
+// Register Service Worker
+
+if ('serviceWorker' in navigator) {
+
+navigator.serviceWorker.register('sw.js');
+
+}
+
+</script>
+
 </body>
 </html>
