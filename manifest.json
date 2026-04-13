@@ -1,19 +1,19 @@
 {
-  "name": "MAREVI Moeslim Fashion",
-  "short_name": "MAREVI",
-  "start_url": ".",
+  "name": "Marevi Store",
+  "short_name": "Marevi",
+  "start_url": "/Marevi-Store-V1/marevi-cashier",
+  "scope": "/Marevi-Store-V1/",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#ffffff",
   "theme_color": "#000000",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYFDE4ekE0ua7b1RjbpAENLB63UzhEvOR5ctrf0LRypl7a4d5uITYrErz8Im2ZoVFwusC_VFIQSi3fcWe1BgrOvqsJKDHJR5pGaw6gtRBRtVrxA19tqU0757HYvFF6tGQv3pS97FqIQJCHP1AQTgpFf6y8061Lr1lVIrEty6DH2awKEQA4WEyBirjXNbWH/s320/Untitled_design__2_-removebg-preview.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYFDE4ekE0ua7b1RjbpAENLB63UzhEvOR5ctrf0LRypl7a4d5uITYrErz8Im2ZoVFwusC_VFIQSi3fcWe1BgrOvqsJKDHJR5pGaw6gtRBRtVrxA19tqU0757HYvFF6tGQv3pS97FqIQJCHP1AQTgpFf6y8061Lr1lVIrEty6DH2awKEQA4WEyBirjXNbWH/s320/Untitled_design__2_-removebg-preview.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
